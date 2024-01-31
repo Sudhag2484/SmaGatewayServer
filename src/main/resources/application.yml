@@ -29,4 +29,5 @@ spring:
           
           
           #in postman hit this url http://localhost:9901/company/all  
-          # added dependency webflux,discoveryclient,reactive gateway version of spring boot 3.1.8 
+          # added dependency webflux,discoveryclient,reactive gateway version of spring boot 3.1.8
+          #excecution order eureka server,configserver,admin server,ms1,ms2,apigateway 
