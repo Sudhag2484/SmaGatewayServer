@@ -1,0 +1,32 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+server:
+  port: 8084
+spring:
+  application:
+    name: GATEWAY-SERVICE
+    
+    
+  cloud:
+    gateway:
+     discovery:
+        locator:
+         enabled: true
+         lowerCaseServiceId: true
+     routes:
+      - id: customer-service
+        uri: lb://CUSTOMER-SERVICE   # or  http://localhost:9901/
+        predicates:
+        - Path=/customer/**
+          
+      - id: company-service
+        uri: lb://COMPANY-SERVICE
+        predicates:
+        - Path=/company/**
+          
+          
+          
+          #in postman hit this url http://localhost:9901/company/all  
+          # added dependency webflux,discoveryclient,reactive gateway version of spring boot 3.1.8 
